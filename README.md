@@ -12,8 +12,11 @@ Things you may want to cover:
 * System dependencies
 
   Rails 6.0.2
-  
+
 * Configuration
+
+  rails db:migrate
+  rails db:seed
 
 * Database creation
 

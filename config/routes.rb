@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :admin do
+    resources :sessions
+    resources :dashboard do
+      collection do
+        get 'home'
+        get 'workers'
+      end
+    end
+
+    root "dashboard#home"
+  end
 end
