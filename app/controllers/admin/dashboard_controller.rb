@@ -1,5 +1,5 @@
-class Admin::DashboardController < ApplicationController
-  before_action :authenticate_admin
+class Admin::DashboardController < AdminController
+  before_action :authenticate_admin, except: [:home]
 
   def home
   end
