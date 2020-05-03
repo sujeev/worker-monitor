@@ -8,16 +8,12 @@ class Admin::SessionsController < ApplicationController
 
     if admin
       session[:admin_id] = admin.id
-      # render json: {
-      #   status: :created,
-      #   logged_in: true,
-      #   user: user
-      # }
-      redirect_to workers_admin_dashboard_index_path
-    else
-      # render json: { status: 401 }
-      redirect_to home_admin_dashboard_index_path
     end
-    # pry
+    redirect_to home_admin_dashboard_index_path
+  end
+
+  def destroy
+    session[:admin_id] = nil
+    redirect_to home_admin_dashboard_index_path
   end
 end

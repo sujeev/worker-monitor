@@ -1,4 +1,9 @@
 <h1>Welcome to Worker monitor</h1>
 
-<p>Please login to continue:</p>
-<%= link_to "Login Admin", new_admin_session_path %>
+<% if !@current_admin %>
+  <p>Please login to continue:</p>
+  <%= link_to "Login Admin", new_admin_session_path %>
+<% else %>
+  <%= link_to "Logout", admin_session_path(@current_admin), method: :delete %>
+  <%= link_to "Workers", workers_admin_dashboard_index_path %>
+<% end %>
