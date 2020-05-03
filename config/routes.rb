@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
   get 'dashboard/home'
   namespace :admin do
-    resources :sessions do
-      # member do
-      #   delete 'destroy'
-      # end
-    end
+    resources :sessions
     resources :dashboard do
       collection do
         get 'home'
@@ -16,5 +12,6 @@ Rails.application.routes.draw do
   end
 
   resources :sessions
+  resources :workers
   root "dashboard#home"
 end

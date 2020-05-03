@@ -9,11 +9,11 @@ class Admin::SessionsController < AdminController
     if admin
       session[:admin_id] = admin.id
     end
-    redirect_to home_admin_dashboard_index_path
+    redirect_to admin_root_path
   end
 
   def destroy
     session[:admin_id] = nil
-    redirect_to home_admin_dashboard_index_path
+    redirect_to admin_root_path
   end
 end

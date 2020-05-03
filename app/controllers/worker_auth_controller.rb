@@ -1,4 +1,4 @@
-class WorkerController < ApplicationController
+class WorkerAuthController < ApplicationController
   before_action :current_worker
 
   def current_worker

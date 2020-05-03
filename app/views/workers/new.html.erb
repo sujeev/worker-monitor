@@ -1,0 +1,18 @@
+<h1>Worker Signup</h1>
+
+<%= form_with model:@worker do |f| %>
+  <div class="">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+  <div class="">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+    <%= f.submit "Sign up" %>
+<% end %>

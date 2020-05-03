@@ -1,0 +1,2 @@
+module WorkerAuthHelper
+end

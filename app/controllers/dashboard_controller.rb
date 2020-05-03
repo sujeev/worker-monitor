@@ -1,4 +1,4 @@
-class DashboardController < WorkerController
+class DashboardController < WorkerAuthController
   def home
   end
 end

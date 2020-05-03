@@ -9,12 +9,12 @@ class SessionsController < ApplicationController
     if worker
       session[:worker_id] = worker.id
     end
-    redirect_to dashboard_home_path
+    redirect_to root_path
   end
 
   def destroy
     session[:worker_id] = nil
-    redirect_to dashboard_home_path
+    redirect_to root_path
   end
 
 end
