@@ -5,7 +5,7 @@ class Admin::DashboardController < AdminController
   end
 
   def workers
-    # pry
+    @workers = Worker.all
   end
 
 private

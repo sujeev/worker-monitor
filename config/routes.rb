@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   end
 
   resources :sessions
-  resources :workers
+  resources :workers do
+    member do
+      get 'punch_out'
+    end
+  end
   root "dashboard#home"
 end

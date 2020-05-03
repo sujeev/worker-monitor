@@ -7,4 +7,34 @@
 
 <% else %>
   <%= link_to "Logout", session_path(@current_worker), method: :delete %>
+
+  <div id="worker-actions">
+    <%#= render "workers/punch_in" %>
+  </div>
+  <div id="punch-in" onclick="punchIN()">
+    Punch IN
+  </div>
+  <div id="punch-out" onclick="punchOUT()" data-id="<%= @current_worker.id %>">
+    Punch OUT
+  </div>
+
 <% end %>
+<script type="text/javascript">
+  var startTime = new Date();
+
+  function punchIN() {
+    startTime = new Date();
+    document.getElementById('punch-in').style.display = "none";
+    document.getElementById('punch-out').style.display = "block";
+  }
+
+  function punchOUT() {
+    var stopTime = new Date();
+    var diff = stopTime - startTime;
+    var worker_id = document.getElementById('punch-out').getAttribute('data-id');
+
+    var url = '/workers/' + worker_id + '/punch_out?diff=' + diff
+    window.location.assign( url);
+  }
+
+</script>

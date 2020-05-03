@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+#punch-in {
+  cursor: pointer;
+}
+
+#punch-out {
+  cursor: pointer;
+  display: none;
+}

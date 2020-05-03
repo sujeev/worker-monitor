@@ -1,4 +1,5 @@
-class WorkersController < ApplicationController
+class WorkersController < WorkerAuthController
+  before_action :set_worker, only: [:punch_out]
 
   def new
     @worker = Worker.new
@@ -14,7 +15,15 @@ class WorkersController < ApplicationController
     end
   end
 
+  def punch_out
+    redirect_to root_path
+  end
+
 private
+
+  def set_worker
+    @worker = Worker.find(params[:id])
+  end
 
   def worker_params
   params.require(:worker).permit(:email, :password, :password_confirmation)
