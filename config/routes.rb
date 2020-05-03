@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dashboard/home'
   namespace :admin do
     resources :sessions do
       member do
@@ -14,4 +15,6 @@ Rails.application.routes.draw do
 
     root "dashboard#home"
   end
+
+  root "dashboard#home"
 end
