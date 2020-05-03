@@ -16,6 +16,11 @@ class WorkersController < WorkerAuthController
   end
 
   def punch_out
+    if params.has_key? "time"
+      time = params[:time]
+      @worker.total_time += time.to_i
+      @worker.save
+    end
     redirect_to root_path
   end
 

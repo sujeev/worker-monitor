@@ -19,6 +19,8 @@
   </div>
 
 <% end %>
+
+
 <script type="text/javascript">
   var startTime = new Date();
 
@@ -33,7 +35,7 @@
     var diff = stopTime - startTime;
     var worker_id = document.getElementById('punch-out').getAttribute('data-id');
 
-    var url = '/workers/' + worker_id + '/punch_out?diff=' + diff
+    var url = '/workers/' + worker_id + '/punch_out?time=' + diff
     window.location.assign( url);
   }
 
