@@ -13,7 +13,7 @@
         <td class="table-cell-id"><%= worker.id %></td>
         <td class="table-cell-name"><%= worker.name %></td>
         <td class="table-cell-email"><%= worker.email %></td>
-        <td class="table-cell-time"><%= worker.total_time / 1000 %></td>
+        <td class="table-cell-time"><%= worker.pretty_time %></td>
         <td class="table-cell-action">
           <% if worker.active %>
             <%= link_to "De-Activate", '#' %>

@@ -1,23 +1,20 @@
 <h1>Welcome</h1>
 
 <% if !@current_worker %>
-  <p>Please login:</p>
-  <%= link_to "Login", new_session_path %>
-  <%= link_to "Signup", new_worker_path %>
-
+  <p>Please login to log time</p>
 <% else %>
-  <%= link_to "Logout", session_path(@current_worker), method: :delete %>
-
-  <div id="worker-actions">
-    <%#= render "workers/punch_in" %>
+  <p class="home-margin">"Punch IN" to start work:</p>
+  <div class="home-margin">
+    <div class="total-time">
+      Total time logged in: <%= @current_worker.pretty_time %>
+    </div>
+    <span id="punch-in" onclick="punchIN()">
+      Punch IN
+    </span>
+    <span id="punch-out" onclick="punchOUT()" data-id="<%= @current_worker.id %>">
+      Punch OUT
+    </span>
   </div>
-  <div id="punch-in" onclick="punchIN()">
-    Punch IN
-  </div>
-  <div id="punch-out" onclick="punchOUT()" data-id="<%= @current_worker.id %>">
-    Punch OUT
-  </div>
-
 <% end %>
 
 
@@ -27,7 +24,7 @@
   function punchIN() {
     startTime = new Date();
     document.getElementById('punch-in').style.display = "none";
-    document.getElementById('punch-out').style.display = "block";
+    document.getElementById('punch-out').style.display = "inline";
   }
 
   function punchOUT() {

@@ -14,7 +14,7 @@
  *= require_self
  */
 
-/* Admin base */
+/* base */
 ul {
   list-style-type: none;
   margin: 0;
@@ -43,15 +43,31 @@ li a:hover:not(.active) {
   background-color: #4CAF50;
 }
 
-/* Worker list */
+/* Worker */
+
+.home-margin {
+  padding-left: 25px;
+}
+
+.total-time {
+  padding-bottom: 35px;
+}
 #punch-in {
   cursor: pointer;
+  background-color: green;
+  color: white;
+  padding: 20px;
 }
 
 #punch-out {
   cursor: pointer;
   display: none;
+  background-color: red;
+  color: white;
+  padding: 20px;
 }
+
+/* Worker list */
 
 .worker-table {
   width: 100%;
