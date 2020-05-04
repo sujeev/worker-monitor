@@ -1,8 +1,27 @@
 <h2>List of workers</h2>
 <% @workers.each do |worker| %>
-  <%= worker.id %>
-  <%= worker.name %>
-  <%= worker.email %>
-  <%= worker.total_time / 1000 %>
-
+  <table class="worker-table">
+    <thead>
+      <th class="table-cell-id">ID</th>
+      <th class="table-cell-name">Name</th>
+      <th class="table-cell-email">Email address</th>
+      <th class="table-cell-time">Total Time</th>
+      <th class="table-cell-action">Action</th>
+    </thead>
+    <tbody>
+      <tr class="<%= worker.active ? 'table-row-active' : 'table-row-inactive' %>">
+        <td class="table-cell-id"><%= worker.id %></td>
+        <td class="table-cell-name"><%= worker.name %></td>
+        <td class="table-cell-email"><%= worker.email %></td>
+        <td class="table-cell-time"><%= worker.total_time / 1000 %></td>
+        <td class="table-cell-action">
+          <% if worker.active %>
+            <%= link_to "De-Activate", '#' %>
+          <% else %>
+            <%= link_to "Activate", '#' %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>

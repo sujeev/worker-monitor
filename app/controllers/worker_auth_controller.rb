@@ -3,6 +3,6 @@ class WorkerAuthController < ApplicationController
 
   def current_worker
     return unless session[:worker_id]
-    @current_worker ||= Worker.where(id:session[:worker_id]).first
+    @current_worker ||= Worker.where(id:session[:worker_id], active: true).first
   end
 end

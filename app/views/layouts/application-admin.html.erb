@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WorkerMonitor</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <ul>
+      <li><a class="active" href="<%= admin_root_path %>">Worker Monitor: Admin</a></li>
+      <% if !@current_admin %>
+        <li style="float:right">
+          <%= link_to "Login", new_admin_session_path %>
+        </li>
+      <% else %>
+      <li>
+        <%= link_to "Workers", workers_admin_dashboard_index_path %>
+      </li>
+      <li style="float:right">
+        <%= link_to "Logout", admin_session_path(@current_admin), method: :delete %>
+      </li>
+      <% end %>
+    </ul>
+    <%= yield %>
+  </body>
+</html>

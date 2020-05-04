@@ -7,11 +7,4 @@ class Admin::DashboardController < AdminController
   def workers
     @workers = Worker.all
   end
-
-private
-  def authenticate_admin
-    if !@current_admin
-      redirect_to new_admin_session_path
-    end
-  end
 end
