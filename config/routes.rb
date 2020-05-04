@@ -8,6 +8,12 @@ Rails.application.routes.draw do
         get 'workers'
       end
     end
+    resources :workers do
+      member do
+        get 'activate'
+        get 'deactivate'
+      end
+    end
     root "dashboard#home"
   end
 

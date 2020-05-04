@@ -1,14 +1,14 @@
 <h2>List of workers</h2>
-<% @workers.each do |worker| %>
-  <table class="worker-table">
-    <thead>
-      <th class="table-cell-id">ID</th>
-      <th class="table-cell-name">Name</th>
-      <th class="table-cell-email">Email address</th>
-      <th class="table-cell-time">Total Time</th>
-      <th class="table-cell-action">Action</th>
-    </thead>
-    <tbody>
+<table class="worker-table">
+  <thead>
+    <th class="table-cell-id">ID</th>
+    <th class="table-cell-name">Name</th>
+    <th class="table-cell-email">Email address</th>
+    <th class="table-cell-time">Total Time</th>
+    <th class="table-cell-action">Action</th>
+  </thead>
+  <tbody>
+    <% @workers.each do |worker| %>
       <tr class="<%= worker.active ? 'table-row-active' : 'table-row-inactive' %>">
         <td class="table-cell-id"><%= worker.id %></td>
         <td class="table-cell-name"><%= worker.name %></td>
@@ -16,12 +16,12 @@
         <td class="table-cell-time"><%= worker.pretty_time %></td>
         <td class="table-cell-action">
           <% if worker.active %>
-            <%= link_to "De-Activate", '#' %>
+            <%= link_to "De-Activate", deactivate_admin_worker_path(worker.id) %>
           <% else %>
             <%= link_to "Activate", '#' %>
           <% end %>
         </td>
       </tr>
-    </tbody>
-  </table>
-<% end %>
+    <% end %>
+  </tbody>
+</table>
