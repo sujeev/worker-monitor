@@ -41,6 +41,8 @@ use the following admin to access the admin module:
     
 NOTE: If you wish to create a new admin, you will have to create it from the Rails console
 
+to access the workers list, use the NavBar link.
+
 ### Worker module ###
 
 to access the worker module use the following url:
