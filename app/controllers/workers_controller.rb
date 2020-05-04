@@ -31,7 +31,7 @@ private
   end
 
   def worker_params
-  params.require(:worker).permit(:email, :password, :password_confirmation)
+  params.require(:worker).permit(:name, :email, :password, :password_confirmation)
   end
 
 end

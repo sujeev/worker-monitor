@@ -11,6 +11,11 @@
     <span id="punch-in" onclick="punchIN()">
       Punch IN
     </span>
+
+    <div id="session-time-section">
+      Time logged in this session:
+      <span id="session-time"></span>
+    </div>
     <span id="punch-out" onclick="punchOUT()" data-id="<%= @current_worker.id %>">
       Punch OUT
     </span>
@@ -19,12 +24,24 @@
 
 
 <script type="text/javascript">
+  function startTimer() {
+    var now = new Date();
+    var diff = (now - startTime) / 1000;
+    var diffTime = new Date(null);
+    diffTime.setSeconds(diff);
+    document.getElementById('session-time').innerHTML = diffTime.toISOString().substr(11, 8);
+    var t = setTimeout(startTimer, 500);
+  }
+
   var startTime = new Date();
 
   function punchIN() {
     startTime = new Date();
     document.getElementById('punch-in').style.display = "none";
     document.getElementById('punch-out').style.display = "inline";
+    document.getElementById('session-time-section').style.display = "block";
+    startTimer();
+
   }
 
   function punchOUT() {

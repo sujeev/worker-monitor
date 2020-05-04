@@ -59,6 +59,11 @@ li a:hover:not(.active) {
   padding: 20px;
 }
 
+#session-time-section {
+  display: none;
+  padding-bottom: 35px;
+}
+
 #punch-out {
   cursor: pointer;
   display: none;

@@ -18,7 +18,7 @@
           <% if worker.active %>
             <%= link_to "De-Activate", deactivate_admin_worker_path(worker.id) %>
           <% else %>
-            <%= link_to "Activate", '#' %>
+            <%= link_to "Activate", activate_admin_worker_path(worker.id) %>
           <% end %>
         </td>
       </tr>
